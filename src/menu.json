@@ -1,0 +1,35 @@
+{
+    "menu":[{
+        "breakfast": {
+            "american coffe": "$5.00",
+            "milk with coffe": "$7.00",
+            "jamon and cheese hamburger": "$10.00",
+            "natural fruits juice": "$7.00"
+        },
+        "lunch and dinner": {
+            "hamburguesas": {
+                "type":[
+                    "beef",
+                    "chicken",
+                    "vegetarian"
+                ],
+                "simple hamburger": "$10.00",
+                "double hamburger": "$10.00",
+                "plus": {
+                    "chesse": "$1.00",
+                    "egg": "$1.00"
+                }
+            },
+            "accompaniment": {
+                "potato chips": "$5.00",
+                "onions rings": "$5.00"
+            },
+            "drinks": {
+                "water 500ml": "$5.00",
+                "water 750ml": "$7.00",
+                "soda 500ml": "$7.00",
+                "soda 750ml": "$10.00"
+            }
+        }
+    }]
+}
