@@ -10,12 +10,14 @@ export default function Order({ order, setOrder }) {
 
   const total = order.reduce((acc, item) => acc + item.subtotal, 0);
   const inputName = useRef();
+  const inputTable = useRef();
 
   const addOrdersFirebase = async (e) => {
     //Guardar en base de datos firebase 
     e.preventDefault();
     let orderProduct = {};
     orderProduct.nameCustomer = inputName.current.value;
+    orderProduct.nameCustomer = inputTable.current.value;
     orderProduct.products = order;
     orderProduct.created_at = new Date();
     orderProduct.status = "pending";
@@ -23,11 +25,16 @@ export default function Order({ order, setOrder }) {
 
     const docRef = await addDoc(collection(db, "orders"), {
       nameCustomer: inputName.current.value,
+      tableNumber: inputTable.current.value,
       products: order,
-      created: new Date().toLocaleString(),
+      created: new Date().toLocaleString('es-PE'),
       status: "pending",
     });
-    // console.log(new Date().toLocaleString())
+
+    setOrder([]);
+    e.target.reset();
+    // e.target.inputName.reset();
+    // e.target.inputTable.reset();
 
     console.log("Document written with ID: ", docRef.id );
   };
@@ -78,8 +85,7 @@ export default function Order({ order, setOrder }) {
 
   return (
     <>
-      <div className="form-group">
-        <div className="form-group">
+     <form className="form-group" onSubmit={addOrdersFirebase}>
           <div className="input-group mb-3">
             <span className="input-group-text">
               <strong>CLIENT:</strong>
@@ -88,15 +94,22 @@ export default function Order({ order, setOrder }) {
               type="text"
               className="form-control"
               ref={inputName}
-              required
-              minLength="4"
+              required minLength="4"
             />
-          </div>
+            <br/>
+            <span className="input-group-text">
+              <strong>TABLE:</strong>
+            </span>
+            <input
+              type="number"
+              className="form-control"
+              ref={inputTable}
+              required minLength="1"
+            />
         </div>
-      </div>
-      <br />
+       <br />
 
-      <div className="table-responsive">
+       <div className="table-responsive">
         <table className="table table-borderless" style={{ width: "30%" }}>
           <thead className="table-active">
             <tr>
@@ -146,10 +159,10 @@ export default function Order({ order, setOrder }) {
           </tfoot>
         </table>
       </div>
-      <Button className="sendOrder" type="submit" onClick={addOrdersFirebase}>
-        SEND
-      </Button>
-      {/* <input type="submit" value="SEND" /> */}
+        <Button type="submit" className="sendOrder"  /* onClick={addOrdersFirebase} */>
+          SEND
+        </Button>
+     </form>
     </>
   );
 }
@@ -157,6 +170,10 @@ export default function Order({ order, setOrder }) {
 // agregar la funcion addProducts de Firebase(check-pero comprobar)
 // agregar las funciones de mas y menos de productos (check)
 // Actualizar el estado SetOrder del subtotal  (CHECK)
-// Agregar Boton "Borrar" para eliminar un pedido
+// Agregar Boton "Borrar" para eliminar un pedido(CHECK)
+// LIMPIAR LA LISTA DE PEDIDOS UNA VEZ QUE SE HAYA HECHO EL PEDIDO(CHECK)
+// Agregar estado para guardar el nombre del cliente y borrar el input al enviar el pedido(se encontró otra solución)
 
+// Buscar como en un formulario desactivar todos los botones y que solo uno sirva como "submit" que es el boton de SEND
 // EVITAR QUE SE PUEDA CAMBIAR DE VENTANA SI EL USUARIO NO ESTA LOGEADO
+

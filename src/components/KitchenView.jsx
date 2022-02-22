@@ -2,6 +2,8 @@ import React,{ useEffect, useState } from "react";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import "./KitchenView.css";
+import { Pending } from "./Pending";
+import {Ready} from './Ready';
 
 export const KitchenView = () => {
   const [pendingOrders, setPendingOrders] = useState([]);
@@ -27,10 +29,6 @@ export const KitchenView = () => {
     getOrders();
   }, [typeOrder]);
 
-  // Cambiar el estado de ordenes pendientes a listas
-  const orderReady = () =>{
-
-  }
 
   return (
     <section className="generalBox container">
@@ -53,34 +51,14 @@ export const KitchenView = () => {
             READY
           </button>
         </div>
-          {pendingOrders.map(order => (
-      <section key={order.id} className="subGeneralBox">
-        <section className="headerOfGeneralBox">
-            <div className="nameClient boxes"> Client: {order.nameCustomer}</div>
-          <div className="hourSection">
-            {console.log(order.created)}
-            <div className="checkinTime boxes "> Check in time:{order.created} </div>
-            <div className="endTime boxes"> Check out time: </div>
-          </div>
-        </section>
-        <section className="mainBox boxes">
-          {order.products.map((product)=>
-            // {console.log("Products",order.products)}
-            <button key={product.id} className="check p-2 m-2" type="check">
-            {product.name} <br /> Quantity: {product.quantity}
-            {/* {console.log(product.name)} */}
-            </button>
-          )}
-        </section>
-        <section className="sectionSubmit">
-          
-            <button key={order.id} className="btnComplete" onClick={() =>orderReady(order.id)}>COMPLETE</button>
-          
-        </section>
-      </section>
-          ))}
+        {typeOrder === 'pending' ? <Pending className='pendingSection' pendingOrders={pendingOrders} setPendingOrders={setPendingOrders}/> : 
+        <Ready pendingOrders={pendingOrders} />}
+        
     </section>
   );
 };
 
-// Pendiente hacer cronómetro
+// Añadir botón cancelar en pestaña "Pending" y su funcionalidad (YA ESTÁ)
+// Desaparecer la fecha de salida de los pedidos de "PENDIENTE" (YA ESTÁ)
+// Desaparecer el boton "CANCEL" y "COMPLETE" de la vista "READY" (YA ESTÁ)
+// 
