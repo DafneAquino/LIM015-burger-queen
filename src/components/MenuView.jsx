@@ -4,7 +4,7 @@ import "./MenuView.css";
 import lineImage from "../images/line.png";
 import Order from "./Order";
 import Product from "./Product";
-// import { Button } from 'react-bootstrap';
+
 
 export function MenuView() {
   const [menu, setMenu] = useState([]);
@@ -29,7 +29,7 @@ export function MenuView() {
   }, [typeProduct]); //<---Para que se ejecute cada vez que cambie el item.type (Breakfast o All Day)
   
   return (
-    <section className="container">
+    <section className="menuContainer container">
       <div className="sectionMenu">
         <br />
         <header className="menu"> MENU </header>

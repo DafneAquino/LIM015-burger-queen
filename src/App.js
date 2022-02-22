@@ -6,7 +6,7 @@ import {
   // Link
 } from "react-router-dom";
 import './App.css'
-import {CookView} from './components/CookView';
+import {KitchenView} from './components/KitchenView.jsx';
 import {LoginView} from './components/LoginView';
 import {MenuView} from './components/MenuView';
 import { NotFound } from './components/NotFound';
@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path = '/' component={LoginView} />
           <Route path = '/menu' component= {MenuView} />
-          <Route path = '/cook' component={CookView} />
+          <Route path = '/cook' component={KitchenView} />
           <Route path ='*' component ={NotFound} />
         </Switch>
     </Router>

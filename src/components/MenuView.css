@@ -1,9 +1,9 @@
-.container{
+.menuContainer{
     display: flex;
     /* justify-content:space-around; */
     align-content: space-around;
     width: 100vh;
-    height: 91%;
+    height: 88%;
     background-color: white;
     border-radius: 7px;
     margin-top: 30px;
