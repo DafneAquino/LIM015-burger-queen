@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./Orders.css";
 import { collection, addDoc } from "firebase/firestore";
@@ -6,35 +6,36 @@ import { db } from "../firebase";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 export default function Order({ order, setOrder }) {
-  // **.reduce -> recibe'4' argumentos: acumulador(acc)
+  
+  const [nameClient, setNameClient] = useState('');
+  const [tableNumber, setTableNumber] = useState('');
 
+  // **.reduce -> recibe'4' argumentos: acumulador(acc)
   const total = order.reduce((acc, item) => acc + item.subtotal, 0);
-  const inputName = useRef();
-  const inputTable = useRef();
 
   const addOrdersFirebase = async (e) => {
-    //Guardar en base de datos firebase 
+    //Guardar pedido en un array como prubea 
     e.preventDefault();
     let orderProduct = {};
-    orderProduct.nameCustomer = inputName.current.value;
-    orderProduct.nameCustomer = inputTable.current.value;
+    orderProduct.nameCustomer = nameClient;
+    orderProduct.tableNumber = tableNumber;
     orderProduct.products = order;
     orderProduct.created_at = new Date();
-    orderProduct.status = "pending";
-    console.log(orderProduct.nameCustomer);
+    orderProduct.status = "pending";   
 
+    // Guardar pedido en la base de datos firebase 
     const docRef = await addDoc(collection(db, "orders"), {
-      nameCustomer: inputName.current.value,
-      tableNumber: inputTable.current.value,
+      nameCustomer: nameClient,
+      numberTable: tableNumber,
       products: order,
       created: new Date().toLocaleString('es-PE'),
       status: "pending",
     });
+    console.log(nameClient, tableNumber);
 
     setOrder([]);
-    e.target.reset();
-    // e.target.inputName.reset();
-    // e.target.inputTable.reset();
+    setNameClient('');
+    setTableNumber('');
 
     console.log("Document written with ID: ", docRef.id );
   };
@@ -85,7 +86,7 @@ export default function Order({ order, setOrder }) {
 
   return (
     <>
-     <form className="form-group" onSubmit={addOrdersFirebase}>
+     <section className="form-group" >
           <div className="input-group mb-3">
             <span className="input-group-text">
               <strong>CLIENT:</strong>
@@ -93,7 +94,8 @@ export default function Order({ order, setOrder }) {
             <input
               type="text"
               className="form-control"
-              ref={inputName}
+              value={nameClient}
+              onChange={(e)=>setNameClient(e.target.value)}
               required minLength="4"
             />
             <br/>
@@ -103,7 +105,8 @@ export default function Order({ order, setOrder }) {
             <input
               type="number"
               className="form-control"
-              ref={inputTable}
+              value={tableNumber}
+              onChange={(e)=>setTableNumber(e.target.value)}
               required minLength="1"
             />
         </div>
@@ -159,10 +162,10 @@ export default function Order({ order, setOrder }) {
           </tfoot>
         </table>
       </div>
-        <Button type="submit" className="sendOrder"  /* onClick={addOrdersFirebase} */>
+        <Button type="submit" className="sendOrder"  onClick={addOrdersFirebase}>
           SEND
         </Button>
-     </form>
+     </section>
     </>
   );
 }
@@ -172,7 +175,7 @@ export default function Order({ order, setOrder }) {
 // Actualizar el estado SetOrder del subtotal  (CHECK)
 // Agregar Boton "Borrar" para eliminar un pedido(CHECK)
 // LIMPIAR LA LISTA DE PEDIDOS UNA VEZ QUE SE HAYA HECHO EL PEDIDO(CHECK)
-// Agregar estado para guardar el nombre del cliente y borrar el input al enviar el pedido(se encontró otra solución)
+// Agregar estado para guardar el nombre del cliente y borrar el input al enviar el pedido(YA ESTÁ)
 
 // Buscar como en un formulario desactivar todos los botones y que solo uno sirva como "submit" que es el boton de SEND
 // EVITAR QUE SE PUEDA CAMBIAR DE VENTANA SI EL USUARIO NO ESTA LOGEADO

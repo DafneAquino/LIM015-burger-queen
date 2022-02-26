@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { app } from '../firebase'
 import logo from '../images/logo.png';
+import logoWaiter from '../images/logoWaiter.png';
+import logoCheff from '../images/logoCheff.png';
+
 import 'firebase/auth';
 import './LoginView.css';
-import { Button, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 export const LoginView = () => {
     //Router para mover a otra vista o página
@@ -24,77 +27,37 @@ export const LoginView = () => {
     }
 
     // Funcion que envía la data de inputs y se activa al hacer click en "submit"
-    const sendSubmit = (e) => {
-        e.preventDefault(); // Para que al hacer click en sign in me evite actualizar la página
-        // console.log(e);
-        console.log(email, password)
-
-        if (email === '' || password === '') {
-            console.log('Ingresar correo y contraseña')
-        } else if (email === 'waiter@burgerqueen.com') {
-            app.auth().signInWithEmailAndPassword(email, password)
-                .then((userFirebase) => {
-                    const user = userFirebase.user;
-                    console.log('Sesion Iniciada con : ', user)
-                    history.push('/Menu')
-                })
-        }
+    const windowsWaiter = () => {
+        history.push('/waiter')
+    };
+    const windowsCheff = () => {
+        history.push('/cheff')
     };
 
 
     return (
         <section className='Login'>
+<img src={logo} className='logoImage' alt='burgerLogo' style={{size: '17px'}}/>
             <Row>
                 <Col>
-                    <div>
-                        <Form onSubmit={sendSubmit} className='frameLogin' >
-                            <Form.Group className ='head'>
-                                <br/>
-                                <br/>
-                                {/* <select className='perfilSelection'>
-                                    <option defaultValue>PERFIL</option>
-                                    <option value='waiter'>Waiter</option>
-                                    <option value='cheff'>Cheff</option>
-                                </select> */}
-                            <img src={logo} className='logoImage' alt='burgerLogo' style={{size: '17px'}}/>
-                            </Form.Group>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <Form.Group>
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Email address"
-                                    className="mb-3"
-                                >
-                                <Form.Control
-                                className= 'email'
-                                // id='email'
-                                name='email'
-                                type = 'email'
-                                onChange={ handleChange }
-                                placeholder='Email Adrees'
-                                />
-                                </FloatingLabel>
-                            </Form.Group>
+                    <section className='btnsLogin'>
+                      <section className='textSection'>
+                        <button className='btnsUsers' onClick={windowsWaiter}>
+                            <img src={logoWaiter} className='logoWaiter' alt='Icon Waiter' />
+                        </button>
+                        <br/>
+                        <p className='textBtns'>Waiter</p>
+                      </section>
+                        <br/>
 
-                            <Form.Group>
-                            <FloatingLabel controlId="floatingPassword" label="Password">
-                                <Form.Control
-                                    className='password'
-                                    // id='password'
-                                    name='password'
-                                    type='password'
-                                    onChange={handleChange}
-                                    placeholder='Password'
-                                />
-                            </FloatingLabel>
-                            </Form.Group>
-                            
-                            <br/>
-                            <Button className='btn' variant="primary" type='submit'>SIGN IN</Button>
-                        </Form>
-                    </div>
+                      <section className='textSection'>
+                        <button className='btnsUsers' onClick={windowsCheff}>
+                            <img src={logoCheff} className='logoCheff' alt='Icon Cheff' />
+                        </button>
+                        <br/>
+                            <p className='textBtns'>Cheff</p>
+                      </section>
+                    </section>
                 </Col>
                 <Col>
                     <div>
@@ -105,5 +68,3 @@ export const LoginView = () => {
         </section>
     )
 }
-
-

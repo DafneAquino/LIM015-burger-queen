@@ -16,8 +16,8 @@ function App() {
     <Router>
         <Switch>
           <Route exact path = '/' component={LoginView} />
-          <Route path = '/menu' component= {MenuView} />
-          <Route path = '/cook' component={KitchenView} />
+          <Route path = '/waiter' component= {MenuView} />
+          <Route path = '/cheff' component={KitchenView} />
           <Route path ='*' component ={NotFound} />
         </Switch>
     </Router>
