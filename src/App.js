@@ -5,11 +5,11 @@ import {
   Route,
   // Link
 } from "react-router-dom";
-import './App.css'
-import {KitchenView} from './components/KitchenView.jsx';
 import {LoginView} from './components/LoginView';
 import {MenuView} from './components/MenuView';
+import {ChefView} from './components/ChefView.jsx';
 import { NotFound } from './components/NotFound';
+import './App.css'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path = '/' component={LoginView} />
           <Route path = '/waiter' component= {MenuView} />
-          <Route path = '/cheff' component={KitchenView} />
+          <Route path = '/cheff' component= {ChefView} />
           <Route path ='*' component ={NotFound} />
         </Switch>
     </Router>

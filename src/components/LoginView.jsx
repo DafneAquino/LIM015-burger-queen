@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
-import { app } from '../firebase'
 import logo from '../images/logo.png';
 import logoWaiter from '../images/logoWaiter.png';
 import logoCheff from '../images/logoCheff.png';
@@ -13,18 +12,18 @@ export const LoginView = () => {
     //Router para mover a otra vista o página
     const history = useHistory();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
 
-    const handleChange = (e) => {
-        if (e.target.name === 'email') {
-            setEmail(e.target.value)
-            // console.log(e.target.value)
-        } else if (e.target.name === 'password') {
-            setPassword(e.target.value);
-            // console.log(e.target.value)
-        }
-    }
+    // const handleChange = (e) => {
+    //     if (e.target.name === 'email') {
+    //         setEmail(e.target.value)
+    //         // console.log(e.target.value)
+    //     } else if (e.target.name === 'password') {
+    //         setPassword(e.target.value);
+    //         // console.log(e.target.value)
+    //     }
+    // }
 
     // Funcion que envía la data de inputs y se activa al hacer click en "submit"
     const windowsWaiter = () => {
@@ -37,7 +36,7 @@ export const LoginView = () => {
 
     return (
         <section className='Login'>
-<img src={logo} className='logoImage' alt='burgerLogo' style={{size: '17px'}}/>
+            <img src={logo} className='logoImage' alt='burgerLogo' style={{size: '17px'}}/>
             <Row>
                 <Col>
                     <section className='btnsLogin'>

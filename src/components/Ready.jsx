@@ -10,7 +10,7 @@ export const Ready=({pendingOrders})=> {
                 <div className="tableNumber boxes"> Table: {order.tableNumber}</div>
               <div className="hourSection">
                 <div className="checkinTime boxes"> Check in time:{order.created} </div>
-                <div className="checkoutTime boxes"> Check out time:{order.created} </div>
+                <div className="checkoutTime boxes"> Check out time:{order.checkOutTime} </div>
               </div>
             </section>
             <section className="mainBox boxes">

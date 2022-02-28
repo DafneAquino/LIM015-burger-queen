@@ -1,11 +1,11 @@
 import React,{ useEffect, useState } from "react";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
-import "./KitchenView.css";
 import { Pending } from "./Pending";
 import {Ready} from './Ready';
+import "./ChefView.css";
 
-export const KitchenView = () => {
+export const ChefView = () => {
   const [pendingOrders, setPendingOrders] = useState([]);
   const [typeOrder, setTypeOrder] = useState('pending');
 

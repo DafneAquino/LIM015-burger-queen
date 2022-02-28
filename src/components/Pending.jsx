@@ -1,5 +1,5 @@
 import React from 'react';
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 export const Pending=({pendingOrders, setPendingOrders})=> {
@@ -9,7 +9,12 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
         await deleteDoc(doc(db, "orders", id));
     }
 
-    const orderReady = () =>{
+    const orderReady = async(id) =>{
+      setPendingOrders(pendingOrders.filter((item)=> item.id !== id));
+      await updateDoc(doc(db, 'orders', id), {
+        status: 'ready',
+        checkOutTime: new Date().toLocaleString('es-PE'),
+      });
 
     }
   return (
@@ -40,3 +45,5 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
     </div>
   )
 }
+
+// Crear funcionalidad orderReady para pasar a la pestaña de pedidos listos 
