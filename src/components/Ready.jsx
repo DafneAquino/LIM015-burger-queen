@@ -3,7 +3,7 @@ import React from 'react'
 export const Ready=({pendingOrders})=> {
   return (
         <div>
-            {pendingOrders.map(order => (
+            {pendingOrders !== [] ? pendingOrders.map(order => (
           <section key={order.id} className="subGeneralBox">
             <section className="headerOfGeneralBox">
                 <div className="nameClient boxes"> Client: {order.nameCustomer}</div>
@@ -23,7 +23,7 @@ export const Ready=({pendingOrders})=> {
               )}
             </section>
           </section>
-              ))}
+              )) : <div> There aren´t any ready order </div>}
         </div>
   )
 }

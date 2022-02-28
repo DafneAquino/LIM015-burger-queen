@@ -1,0 +1,5 @@
+.pendingOrderSection{
+    /* display:flex; */
+    height: 65%;
+    overflow: scroll;
+}

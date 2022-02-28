@@ -1,6 +1,7 @@
 import React from 'react';
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import './Pending.css'
 
 export const Pending=({pendingOrders, setPendingOrders})=> {
       // Cambiar el estado de ordenes pendientes a listas
@@ -18,8 +19,8 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
 
     }
   return (
-    <div>
-        {pendingOrders.map(order => (
+    <div className='pendingOrderSection'>
+        {pendingOrders !== [] ? pendingOrders.map(order => (
       <section key={order.id} className="subGeneralBox">
         <section className="headerOfGeneralBox">
             <div className="nameClient boxes"> Client: {order.nameCustomer}</div>
@@ -41,7 +42,7 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
             <button  className="btnComplete" onClick={() =>orderReady(order.id)}>READY</button>
         </section>
       </section>
-          ))}
+          )): <div> There aren´t any pending order </div>}
     </div>
   )
 }
