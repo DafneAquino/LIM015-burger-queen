@@ -26,7 +26,7 @@ export function MenuBar(props) {
           <FaUserAlt />
           <div>Users</div>
         </section>
-          {props.typeUser === 'Waiter' ? 
+          {props.typeUser === 'waiter' ? 
         <section className='miniSectionMenu' onClick={()=>history.push('/ordersReady')}>
           <FaListOl />
           <div>Orders Ready</div> 
