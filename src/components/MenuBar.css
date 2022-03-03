@@ -15,4 +15,8 @@
     flex-direction: raw;
     align-items: center;
     padding-right: 3%;
+    cursor:pointer;
+  }
+  .logoSection{
+    cursor:auto !important;
   }

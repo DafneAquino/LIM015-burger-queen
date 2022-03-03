@@ -29,11 +29,9 @@ export function WaiterView() {
 
   return (
     <>
-      <MenuBar />
+      <MenuBar typeUser='Waiter'/>
       <section className="mainContainer">
         <div className="foodOptions">
-          {/* <header className="menu"> MENU </header> */}
-
           <div className="buttonsSection">
             <button
               className="btnsBreakfastAndAllDay"

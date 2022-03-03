@@ -29,17 +29,17 @@ export const LoginView = () => {
         history.push('/waiter')
     };
     const windowsCheff = () => {
-        history.push('/cheff')
+        history.push('/chef')
     };
 
 
     return (
         <Fragment >
-            {/* <section> */}
-            {/* <img src={logo} className='logoImage' alt='burgerLogo' style={{size: '107%'}}/> */}
-
-            {/* </section> */}
-                    <section className='mainSection'>
+            <section className='welcomeSection'>
+            <img src={logo} className='logoImage' alt='burgerLogo' style={{size: '107%'}}/>
+            <div> Choose an user</div>
+            </section>
+                    <section className='mainSection mainContainer'>
                       <section className='textSection'>
                         <button className='btnsUsers' onClick={windowsWaiter}>
                             <img src={logoWaiter} className='logoWaiter' alt='Icon Waiter' />
@@ -57,9 +57,6 @@ export const LoginView = () => {
                             <p className='textBtns'>CHEF</p>
                       </section>
                     </section>
-                    {/* <div>
-                        <img src={fondo2} className='fondoImage' alt='BurgerImage'/>
-                    </div> */}
         </Fragment>
     )
 }

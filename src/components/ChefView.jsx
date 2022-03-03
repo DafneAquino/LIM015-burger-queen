@@ -30,7 +30,7 @@ export const ChefView = () => {
 
   return (
     <>
-    <MenuBar />
+    <MenuBar typeUser='Chef' />
       <div className="selectionBtns">
         <button
           className="buttons"
