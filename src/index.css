@@ -4,21 +4,23 @@
   padding: 0;
 }
 body {
-  height: 100%;
-  font-family: 'Nanum Gothic', 'Rubik','Chivo' ;
+  background-image: url(images/fondoBurger.jpg);
+  /* height: 100%;
+  font-family: 'Nanum Gothic', 'Rubik','Chivo' ; */
+}
+:root{
+  --main-fonts-color: white;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
-#root{
-  background-color: black;
-  background-image: url(images/fondoBurger.jpg);
+/* #root{
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   margin: 0;
   padding: 0;
-}
+} */

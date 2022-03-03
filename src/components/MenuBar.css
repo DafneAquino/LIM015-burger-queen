@@ -1,0 +1,18 @@
+.menuSection {
+    display: flex;
+    flex-direction: raw;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: x-large;
+    font-style: unset;
+    font-weight: bolder;
+    background-color: rgba(49, 46, 46, 0.774);
+    border-radius: 20px;
+  }
+  .miniSectionMenu {
+    display: flex;
+    flex-direction: raw;
+    align-items: center;
+    padding-right: 3%;
+  }

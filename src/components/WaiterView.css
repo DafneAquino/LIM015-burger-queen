@@ -1,0 +1,66 @@
+.mainContainer {
+  display: flex;
+  flex-direction: raw;
+  height: auto;
+  /* width:auto; */
+  background-color: rgba(49, 46, 46, 0.774);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.foodOptions {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-right: 7%;
+}
+
+.buttonsSection {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+.btnsBreakfastAndAllDay {
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: auto;
+  width: 40%;
+  height: 40px;
+  background-color: #f7f4ef;
+  border-radius: 20px;
+  border-style: hidden;
+}
+.btnsBreakfastAndAllDay:hover {
+  background-color: #d48d09;
+  box-shadow: 2px 2px 10px 1px #898989;
+}
+
+.optionsMenuType {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 350px;
+  overflow-y: scroll;
+  justify-items: center;
+  margin-left: 9%;
+  margin-right: -7%;
+}
+
+/* Para quitar las barras del scroll */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.sectionOrder {
+  display: flex;
+  margin-top: 5%;
+  width: auto;
+  padding-left: 2%;
+  padding-right: 3%;
+  height: 500px;
+  z-index: 1;
+  overflow-y: scroll;
+}

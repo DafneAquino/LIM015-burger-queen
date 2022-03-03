@@ -1,99 +1,46 @@
-.Login{
-    background-image: url(../images/fondo2.png);
-    background-size: cover;
-    /* Full height */
-    height: 100%; 
-    /* width: '100vw'; */
-    /* height: '110vh'; */
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    outline: hidden;
-    overflow: hidden;
-}
-
-.btnsLogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    /* height: 50%; */
-    /* outline: hidden;
-    overflow: hidden;
-    background-color: white;
-    border: 1px solid white;
-    margin-left: 10%;
-    margin-top:6%;
-    margin-bottom: 60px;
-    border-radius: 10px;
-    box-shadow: 3px 2px 2px 6px rgb(255, 255, 255); */
-}
-
-.btnsUsers{
-  outline: hidden;
-    overflow: hidden;
-    background-color:black;
-    border: 1px solid white;
-  border: none;
-  transition: all 300ms ease;
-  margin-left: 10%;
-  margin-top:6%;
-  width: 80%;
-  height: 150px;
-  /* margin-bottom: 60px; */
+.mainSection {
+  display: flex;
+  flex-direction: raw;
+  align-items: center;
+  /* background-color: rgba(252, 252, 252, 0.4); */
+  background-size: 100%;
+  margin: 5% 0 0 0 ;
   border-radius: 10px;
-  box-shadow: 3px 2px 2px 3px rgb(12, 11, 11);
-  cursor: pointer;
-  /* outline: none; */
-  /* background-color: white; */
-}
-
-.btnsUsers:hover{
-  transform:scale(1.1);
-}
-
-.textBtns{
-  /* font: sans 90px; */
-  color:white;
-  font:bolder 20px monospace;
-  margin-left: 10%;
-  /* font-family: monospace; */
-  /* font-size:190px; */
-  /* font-weight: 100px; */
-  /* background-color: white; */
-    /* border: 1px solid white; */
 }
 
 .textSection {
   display: flex;
-  flex-flow:row;
-  justify-content:flex-end;
+  flex-flow: column;
   align-items: center;
-  
-  /* box-sizing:border-box; */
-    width: 50%;
-    height: 100%;
-    /* outline: none; */
-    /* background-color: #E5E5E5; */
-    /* border-radius: 5px; */
-    /* margin: 40px 50px ;  */
-    
-    padding: 10px;
-    /* font-family: "Poppins", sans-serif; */
-    /* font-size: small; */
-    /* font-weight: bolder;  */
-    outline: none;
-    border: hidden;
-  }
-  
-/* .btn-primary {
-    width: 44%;
-    height: calc(3.5rem + 2px);
-    margin-bottom: 10%;
-    font-family: "Poppins", sans-serif;
-    font-size: 30px;
-    font-weight: bolder;
-    cursor: pointer;
-    background-color: #F5AC25;
-} */
+  width: 100%;
+  height: auto;
+}
 
+.btnsUsers {
+  outline: hidden;
+  border: 1px solid white;
+  transition: all 300ms ease;
+  margin: 30% 50px 0px 50px;
+  width: 50%;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 2px 3px rgb(12, 11, 11);
+  cursor: pointer;
+}
+
+.btnsUsers:hover {
+  transform: scale(1.1);
+}
+
+.textBtns {
+  /* color: whitesmoke; */
+  /* color: black; */
+  /* font: 35px bolder;
+  font-family:sans-serif;
+  margin-bottom: 25%; */
+  /* background-color: rgba(252, 252, 252, 0.4); */
+  color: white;
+  font-size: x-large;
+  font-style: unset;
+  font-weight: bolder;
+}

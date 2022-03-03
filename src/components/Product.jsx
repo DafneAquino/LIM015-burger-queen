@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 export default function Product({product, menu, order, setOrder}) {
     //constante que guarda las propiedades del estado de cada uno de los productos
-    const { id, name, /* price */} = product;
+    const { id, name, price} = product;
 
     //Funcion para agregar productos a la sección orders
     const orderProducts = () =>{
@@ -27,10 +27,10 @@ export default function Product({product, menu, order, setOrder}) {
   return (
     <Fragment>
       {menu ? ((
-        <Button key={id} onClick={() => orderProducts(id)}>
+        <button className='btn-secondary mb-2 btn-lg' key={id} onClick={() => orderProducts(id)}>
           <div> {name} </div>
-          {/* <div> $. {price}.00 </div> */}
-        </Button>
+          <div> $. {price}.00 </div>
+        </button>
          )):
          (<></>)
       }

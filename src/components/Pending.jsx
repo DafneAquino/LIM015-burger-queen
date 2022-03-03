@@ -19,16 +19,16 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
 
     }
   return (
-    <div className='pendingOrderSection'>
+    <div className='mainContainer pending'>
         {pendingOrders !== [] ? pendingOrders.map(order => (
-      <section key={order.id} className="subGeneralBox">
+      <section key={order.id} className="subContainer">
         <section className="headerOfGeneralBox">
             <div className="nameClient boxes"> Client: {order.nameCustomer}</div>
           <div className="hourSection">
-            <div className="checkinTime boxes "> Check in time:{order.created} </div>
+            <div className="checkinTime boxes "> Check in time: {order.created} </div>
           </div>
         </section>
-        <section className="mainBox boxes">
+        <section className="foodContainer boxes">
           {order.products.map((product)=>
             // {console.log("Products",order.products)}
             <button key={product.id} className="check p-2 m-2" type="check">
@@ -38,8 +38,8 @@ export const Pending=({pendingOrders, setPendingOrders})=> {
           )}
         </section>
         <section className="sectionSubmit">
-            <button  className="btnComplete" onClick={() =>cancelOrder(order.id)}>CANCEL</button>
-            <button  className="btnComplete" onClick={() =>orderReady(order.id)}>READY</button>
+            <button  className="btnsCancelOrReady" onClick={() =>cancelOrder(order.id)}>CANCEL</button>
+            <button  className="btnsCancelOrReady" onClick={() =>orderReady(order.id)}>READY</button>
         </section>
       </section>
           )): <div> There aren´t any pending order </div>}

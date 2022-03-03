@@ -3,6 +3,7 @@ import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import { Pending } from "./Pending";
 import { Ready } from "./Ready";
+import MenuBar from "./MenuBar";
 import "./ChefView.css";
 
 export const ChefView = () => {
@@ -28,11 +29,11 @@ export const ChefView = () => {
   }, [typeOrder]);
 
   return (
-    <section className="generalBox container">
-      <header className="ordersHead"> ORDERS </header>
-      <div className="buttons">
+    <>
+    <MenuBar />
+      <div className="selectionBtns">
         <button
-          className="btnPending"
+          className="buttons"
           onClick={() => {
             setTypeOrder("pending");
           }}
@@ -40,7 +41,7 @@ export const ChefView = () => {
           PENDING
         </button>
         <button
-          className="btnReady"
+          className="buttons"
           onClick={() => {
             setTypeOrder("ready");
           }}
@@ -48,18 +49,21 @@ export const ChefView = () => {
           READY
         </button>
       </div>
+    <section className="">
+      {/* <header className="ordersHead"> ORDERS </header> */}
+      <section className="pendingAndReadySection">
       {typeOrder === "pending" ? (
         <Pending
-          className="pendingSection"
           pendingOrders={pendingOrders}
           setPendingOrders={setPendingOrders}
         />
       ) : (
         <Ready 
-        // className="readySection"
         pendingOrders={pendingOrders} />
       )}
     </section>
+    </section>
+    </>
   );
 };
 
